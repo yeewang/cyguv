@@ -1,0 +1,32 @@
+NAME="uv"
+VERSION=1.9.1
+RELEASE=1
+CATEGORY="Utils"
+SUMMARY="libuv Cygwin bridge layer"
+DESCRIPTION="cyguv enables the windows native libuv to be run on Cygwin."
+HOMEPAGE="http://www.mybots.org/"
+
+SRC_URI=${CYGPORT_SRC_URI:-""}
+SRC_DIR=${CYGPORT_SRC_DIR:-""}
+
+src_compile()
+{
+    lndirs
+    cd ${B}/opt/cyguv
+    make
+}
+
+src_install()
+{
+    cd ${B}/inc/uv
+    includeinto uv
+    doinclude uv.h
+
+    cd ${B}/opt/cyguv
+    dobin cyguv-${VERSION}.dll
+    dolib libuv-${VERSION}.dll.a
+    dosym libuv-${VERSION}.dll.a /usr/lib/libuv.dll.a
+    dopkgconfig uv.pc
+}
+
+RESTRICT="strip postinst-doc"

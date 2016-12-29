@@ -1,0 +1,9 @@
+prefix=/usr
+incdir=${prefix}/include/uv/include
+
+Name: uv
+Description: libuv Cygwin bridge layer
+Version: @Version@
+URL: http://www.mybots.org/
+Libs: -luv-@Version@
+Cflags: -I"${incdir}" -DCYGUV
