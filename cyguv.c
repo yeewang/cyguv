@@ -7,6 +7,7 @@
 #include <sys/cygwin.h>
 
 #include "cyguv-pfns.h"
+#include "cyguv-pfns.c"
 
 static void *cyguv_init_internal();
 static void *cyguv_init_fail();

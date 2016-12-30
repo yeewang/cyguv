@@ -20,9 +20,14 @@
  * IN THE SOFTWARE.
  */
 
+void cyguv_init(int force);
 
-#define PASCAL 			__attribute__((__pascal))
-#define WSAAPI 			__attribute__((__pascal))
+/* 
+ * Remove the call convention, because I only do care the memory alignment and not
+ * to use the Windows APIs directly. 
+ */
+#define PASCAL 			// __attribute__((__pascal)) 
+#define WSAAPI 			// __attribute__((__pascal))
 
 /* Map Windows 64-bit data models on Cygwin
  * https://msdn.microsoft.com/en-us/library/windows/desktop/aa383751(v=vs.85).aspx
