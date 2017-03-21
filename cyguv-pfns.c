@@ -48,7 +48,8 @@ extern "C" {
 
 extern void cyguv_init(int force);
 
-#define CYGUV_API_CALL(api)          (cyguv_init(0), pfn_ ## api)
+//#define CYGUV_API_CALL(api)          (cyguv_init(0), pfn_ ## api)
+#define CYGUV_API_CALL(api)          (pfn_ ## api)
 
 
 UV_EXTERN unsigned int uv_version(void)

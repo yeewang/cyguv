@@ -15,7 +15,8 @@ static void *cyguv_init_fail();
 static pthread_mutex_t cyguv_mutex = PTHREAD_MUTEX_INITIALIZER;
 static void *cyguv_handle = 0;
 
-void cyguv_init(int force)
+void __attribute__((constructor))
+cyguv_init(int force)
 {
     pthread_mutex_lock(&cyguv_mutex);
     if (force || 0 == cyguv_handle)

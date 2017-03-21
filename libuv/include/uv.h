@@ -40,7 +40,7 @@ extern "C" {
 #   define UV_EXTERN /* nothing */
 # endif
 #elif __GNUC__ >= 4
-# define UV_EXTERN __attribute__((visibility("default"))) 
+# define UV_EXTERN __attribute__((visibility("default")))
 #else
 # define UV_EXTERN /* nothing */
 #endif
@@ -995,12 +995,12 @@ struct uv_interface_address_s {
   char phys_addr[6];
   int is_internal;
   union {
-    struct sockaddr_in_internal address4;
-    struct sockaddr_in6_internal address6;
+    struct sockaddr_in_cyguv address4;
+    struct sockaddr_in6_cyguv address6;
   } address;
   union {
-    struct sockaddr_in_internal netmask4;
-    struct sockaddr_in6_internal netmask6;
+    struct sockaddr_in_cyguv netmask4;
+    struct sockaddr_in6_cyguv netmask6;
   } netmask;
 };
 
@@ -1369,6 +1369,8 @@ UV_EXTERN int uv_fs_event_stop(uv_fs_event_t* handle);
 UV_EXTERN int uv_fs_event_getpath(uv_fs_event_t* handle,
                                   char* buffer,
                                   size_t* size);
+struct sockaddr_in;
+struct sockaddr_in6;
 
 UV_EXTERN int uv_ip4_addr(const char* ip, int port, struct sockaddr_in* addr);
 UV_EXTERN int uv_ip6_addr(const char* ip, int port, struct sockaddr_in6* addr);

@@ -25,8 +25,8 @@ extern "C" {
 # include "uv-unix.h"
 #endif
 
-#define CYGUV_API_NAME(api)          				        (* pfn_ ## api)
-#define CYGUV_INTERNAL                                      static
+#define CYGUV_API_NAME(api)             (* pfn_ ## api)
+#define CYGUV_INTERNAL                  __attribute__((__cdecl__)) static
 
 /* Expand this list if necessary. */
 #define UV_ERRNO_MAP(XX)                                                      \

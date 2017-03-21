@@ -765,4 +765,7 @@ name##_RB_MINMAX(struct name *head, int val)                                  \
       ((x) != NULL) && ((y) = name##_RB_PREV(x), (x) != NULL);                \
        (x) = (y))
 
+#undef RB_BLACK
+#undef RB_RED
+
 #endif  /* UV_TREE_H_ */
